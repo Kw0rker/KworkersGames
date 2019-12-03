@@ -1,10 +1,11 @@
 package GameController;
 
-import GameCanva.gameCanva;
+import GameCanva.GameCanvas;
+
 
 import java.awt.*;
 
 public interface GameController {
-    public void onDrawFrame(gameCanva canva, Graphics g,float delta);
+     void onDrawFrame(GameCanvas canva, Graphics g, float delta);
     public void throwException(RuntimeException e);
 }

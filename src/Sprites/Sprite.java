@@ -1,13 +1,16 @@
 package Sprites;
 
 import java.awt.*;
-import GameCanva.gameCanva;
+
+import GameCanva.GameCanvas;
+import physics.PhysicObject;
 
 public class Sprite {
     protected float x;
     protected float y;
     protected float halfWidth;
     protected float halfHeight;
+    protected PhysicObject object;
 
     protected float getLeft() {
         return x - halfWidth;
@@ -40,7 +43,10 @@ public class Sprite {
         return 2f * halfHeight;
     }
 
-   public void update(gameCanva canvas, float deltaTime) {}
-   public void render(gameCanva canvas, Graphics g) {}
+   public void update(GameCanvas canvas, float deltaTime) {}
+   public void render(GameCanvas canvas, Graphics g) {}
 
+    public PhysicObject getObject() {
+        return object;
+    }
 }
