@@ -19,11 +19,11 @@ public class Physics {
         return Vy+acceleration*deltaT;
     }
     private boolean collisionCheck(PhysicObject o1,PhysicObject o2,PhysicsListener listener){
-       if (
-
-               (Math.pow((o2.getX_coordinate()-o1.getX_coordinate()),2)
-                       +(Math.pow((o2.getY_coordinate()-o1.getY_coordinate()),2)))<=
-                       (Math.pow(o1.getRadius()+o2.getRadius(),2))) {listener.collision(o1,o2,this);return true;}
+        if ((Math.pow((o2.getX_coordinate()-o1.getX_coordinate()),2)+(Math.pow((o2.getY_coordinate()-o1.getY_coordinate()),2)))<=(Math.pow(o1.getRadius()+o2.getRadius(),2)))
+            {
+            listener.collision(o1,o2,this);
+            return true;
+            }
        else return false;
     }
     public void update(float deltaT,PhysicsListener listener){
