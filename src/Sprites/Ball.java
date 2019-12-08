@@ -6,7 +6,8 @@ import physics.PhysicObject;
 
 import java.awt.*;
 
-public class Ball extends PhysicObject {
+public class Ball extends PhysicObject
+{
     public float vx = (float)( 150 + (Math.random() * 200f));
     public float vy = (float)( 150 + (Math.random() * 200f));
     private final Color color = new Color(
@@ -14,81 +15,94 @@ public class Ball extends PhysicObject {
             (int)(Math.random() * 255),
             (int)(Math.random() * 255)
     );
-    public Ball() {
+    public Ball() 
+    {
         halfHeight = 20 + (float) (Math.random() * 50f);
         halfWidth = halfHeight;
-        System.out.println("ball created");
-        object=new PhysicObject();
+        object = new PhysicObject();
     }
-    public Ball(int x_, int y_){
+    public Ball(int x, int y)
+    {
         super();
-        x=x_;y=y_;
+        this.x=x;
+        this.y=y;
         halfHeight = 20 + (float) (Math.random() * 50f);
         halfWidth = halfHeight;
     }
 
     @Override
-    public void update(GameCanvas canvas, float deltaTime) {
+    public void update(GameCanvas canvas, float deltaTime) 
+    {
         x += vx * deltaTime;
         y += vy * deltaTime;
-        if (getLeft() < canvas.getLeft()) {
+        if (getLeft() < canvas.getLeft())
+        {
             setLeft(canvas.getLeft());
             vx = -vx;
         }
-        if (getRight() > canvas.getRight()) {
+        if (getRight() > canvas.getRight())
+        {
             setRight(canvas.getRight());
             vx = -vx;
         }
-        if (getTop() < canvas.getTop()) {
+        if (getTop() < canvas.getTop()) 
+        {
             setTop(canvas.getTop());
             vy = -vy;
         }
-        if (getBottom() > canvas.getBottom()) {
+        if (getBottom() > canvas.getBottom()) 
+        {
             setBottom(canvas.getBottom());
             vy = -vy;
         }
-
     }
 
     @Override
-    public void render(GameCanvas canvas, Graphics g) {
+    public void render(GameCanvas canvas, Graphics g)
+    {
         g.setColor(color);
-        g.fillOval((int) getLeft(), (int) getTop(),
-                (int) getWidth(), (int) getHeight());
+        g.fillOval((int)getLeft(), (int)getTop(), (int)getWidth(), (int)getHeight());
     }
 
     @Override
-    public PhysicObject getObject() {
+    public PhysicObject getObject()
+    {
         return object;
     }
 
     @Override
-    public int getX_coordinate() {
+    public int getX() 
+    {
         return (int)x;
     }
 
     @Override
-    public int getY_coordinate() {
+    public int getY() 
+    {
         return (int)y;
     }
 
     @Override
-    public void setX_speed(float x_speed) {
-        vx=x_speed;
+    public void setVx(float vx) 
+    {
+        this.vx=vx;
     }
 
     @Override
-    public void setY_speed(float y_speed) {
-        vy=y_speed;
+    public void setVy(float vy) 
+    {
+        this.vy=vy;
     }
 
     @Override
-    public float getX_speed() {
+    public float getVx() 
+    {
         return vx;
     }
 
     @Override
-    public float getY_speed() {
+    public float getVy() 
+    {
         return vy;
     }
 }
