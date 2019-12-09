@@ -3,60 +3,59 @@ package physics;
 import Sprites.Sprite;
 
 public  class PhysicObject extends Sprite {
-    private float X_speed;
-    private float Y_speed;
-    private int X_coordinate, Y_coordinate;
+    private float Vx, Vy;
+    private int x, y;
     private static final float G=9.8f;
-    private float acceleration;
+    private float accel;
 
-    public float getX_speed() {
-        return X_speed;
+    public float getVx() {
+        return Vx;
     }
     public int getHalfHeight(){
         return (int)super.halfHeight;
     }
-    public int getHalfWight(){
+    public int getHalfWidth(){
         return (int)super.halfWidth;
     }
 
-    public float getY_speed() {
-        return Y_speed;
+    public float getVy() {
+        return Vy;
     }
 
-    public int getX_coordinate() {
-        return X_coordinate;
+    public int getX() {
+        return x;
     }
 
-    public int getY_coordinate() {
-        return Y_coordinate;
+    public int getY() {
+        return y;
     }
 
     public static float getG() {
         return G;
     }
 
-    public float getAcceleration() {
-        return acceleration;
+    public float getAccel() {
+        return accel;
     }
 
-    public void setX_speed(float x_speed) {
-        X_speed = x_speed;
+    public void setVx(float Vx) {
+        this.Vx = Vx;
     }
 
-    public void setY_speed(float y_speed) {
-        Y_speed = y_speed;
+    public void setVy(float Vy) {
+        this.Vy = Vy;
     }
 
-    public void setX_coordinate(int x_coordinate) {
-        X_coordinate = x_coordinate;
+    public void setX(int x) {
+        this.x = x;
     }
 
-    public void setY_coordinate(int y_coordinate) {
-        Y_coordinate = y_coordinate;
+    public void setY(int y) {
+        this.y = y;
     }
 
-    public void setAcceleration(float acceleration) {
-        this.acceleration = acceleration;
+    public void setAccel(float accel) {
+        this.accel = accel;
     }
     public int getRadius(){
         return (int)(Math.max(halfHeight,halfWidth));
