@@ -33,7 +33,7 @@ public class Physics {
         for (PhysicObject object:objects){
             object.setX(this.changeX(object.getX(),object.getVx(),object.getAccel(),deltaT));
             object.setY(changeY(object.getY(),object.getVy(),object.getAccel(),deltaT));
-            object.setVx(change_Vx(object.getVx),object.getAccel(),deltaT));
+            object.setVx(change_Vx(object.getVx(),object.getAccel(),deltaT));
             object.setVy(change_Vy(object.getVy(),object.getAccel(),deltaT));
             for (PhysicObject object1:objects){
                 if (object==object1)continue;
