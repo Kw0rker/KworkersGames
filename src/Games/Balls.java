@@ -14,8 +14,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Balls extends JFrame implements GameController, PhysicsListener 
-{
+public class Balls extends JFrame implements GameController, PhysicsListener {
     private static final int POS_X = 600;
     private static final int POS_Y = 600;
     private static final int WINDOW_WIDTH = 1280;
@@ -23,13 +22,11 @@ public class Balls extends JFrame implements GameController, PhysicsListener
     Physics physics=new Physics();
     ArrayList<Sprite> sprites=new ArrayList<>();
 
-    public static void main(String[] args) 
-    {
+    public static void main(String[] args) {
         SwingUtilities.invokeLater(Balls::new);
     }
 
-    public Balls() 
-    {
+    public Balls() {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setBounds(POS_X, POS_Y, WINDOW_WIDTH, WINDOW_HEIGHT);
         setTitle("Circles");
@@ -40,12 +37,10 @@ public class Balls extends JFrame implements GameController, PhysicsListener
 
     }
 
-    private void initApplication() 
-    {
+    private void initApplication() {
         int x=0,y=0;
         Random random=new Random();
-        for (int i = 0; i < 12; i++)
-        {
+        for (int i = 0; i < 12; i++){
             Ball ball=new Ball(random.nextInt(WINDOW_WIDTH),random.nextInt(WINDOW_HEIGHT));
             sprites.add(ball);
             int x2=random.nextInt(x+200);
@@ -55,13 +50,11 @@ public class Balls extends JFrame implements GameController, PhysicsListener
             //physics.objects.add(l);
             physics.objects.add(ball);
             x=x2;y=y2;
-
         }
     }
 
     @Override
-    public void onDrawFrame(GameCanvas canva, Graphics g, float delta) 
-    {
+    public void onDrawFrame(GameCanvas canva, Graphics g, float delta) {
         physics.update(delta,this);
         update(canva,delta);
         render(g,canva);
@@ -71,13 +64,11 @@ public class Balls extends JFrame implements GameController, PhysicsListener
     @Override
     public void throwException(RuntimeException e) {}
     
-    private void update(GameCanvas canvas, float deltaT)
-    {
+    private void update(GameCanvas canvas, float deltaT){
         for (Sprite s:sprites)s.update(canvas,deltaT);
     }
     
-    private void render(Graphics g, GameCanvas canvas)
-    {
+    private void render(Graphics g, GameCanvas canvas){
         for (Sprite s:sprites)s.render(canvas,g);
     }
 
@@ -86,7 +77,7 @@ public class Balls extends JFrame implements GameController, PhysicsListener
         if (o1 instanceof land && o2 instanceof land) return;
         //if (o1 instanceof Ball && o2 i) return;
         o1.setVy(o1.getVy()*-1);
-        o2.setVx(o2.getXy()*-1);
+        o2.setVx(o2.getVx()*-1);
         //o2.setVx(o2.getVx()*-1);
         //o1.setVx(o1.getVx()*-1);
     }
