@@ -37,7 +37,6 @@ public class Balls extends JFrame implements GameController, PhysicsListener
         add(canvas, BorderLayout.CENTER);
         initApplication();
         setVisible(true);
-
     }
 
     private void initApplication() 
@@ -55,7 +54,6 @@ public class Balls extends JFrame implements GameController, PhysicsListener
             //physics.objects.add(l);
             physics.objects.add(ball);
             x=x2;y=y2;
-
         }
     }
 
@@ -65,12 +63,10 @@ public class Balls extends JFrame implements GameController, PhysicsListener
         physics.update(delta,this);
         update(canva,delta);
         render(g,canva);
-
     }
 
     @Override
     public void throwException(RuntimeException e) {}
-    
     private void update(GameCanvas canvas, float deltaT)
     {
         for (Sprite s:sprites)s.update(canvas,deltaT);
