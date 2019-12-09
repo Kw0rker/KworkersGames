@@ -2,50 +2,41 @@ package physics;
 
 import java.util.ArrayList;
 
-public class Physics 
-{
+public class Physics {
     public ArrayList<PhysicObject>objects=new ArrayList<>();
 
-    protected int changeX(int x,float Vx,float accel,float deltaT)
-    {
-        return (int)(x+Vx*deltaT+(accel*Math.pow(deltaT,2))/2);
+    protected int change_X_coordinate(int x,float Vx,float acceleration,float deltaT){
+        return (int)(x+Vx*deltaT+(acceleration*Math.pow(deltaT,2))/2);
     }
 
-    protected int changeY(int y,float Vy,float accel,float deltaT)
-    {
-        return (int)(y+Vy*deltaT+(accel*Math.pow(deltaT,2))/2);
+    protected int change_Y_coordinate(int y,float Vy,float acceleration,float deltaT){
+        return (int)(y+Vy*deltaT+(acceleration*Math.pow(deltaT,2))/2);
     }
-    
-    protected float changeVx(float Vx,float accel,float deltaT)
-    {
-        return Vx+accel*deltaT;
+    protected float change_Vx(float Vx,float acceleration,float deltaT){
+        return Vx+acceleration*deltaT;
     }
-    
-    protected float changeVy(float Vy,float accel,float deltaT)
-    {
-        return Vy+accel*deltaT;
+    protected float change_Vy(float Vy,float acceleration,float deltaT){
+        return Vy+acceleration*deltaT;
     }
-    
-    private boolean collisionCheck(PhysicObject o1, PhysicObject o2, PhysicsListener listener)
-    {
-        if ((Math.pow((o2.getX()-o1.getX()),2)+(Math.pow((o2.getY()-o1.getY()),2)))<=(Math.pow(o1.getRadius()+o2.getRadius(),2)))
-            {
-                listener.collision(o1,o2,this);
-                return true;
-            }
-        else return false;
-        
+    private boolean collisionCheck(PhysicObject o1,PhysicObject o2,PhysicsListener listener){
+       if (
+
+               (Math.pow((o2.getX_coordinate()-o1.getX_coordinate()),2)
+                       +(Math.pow((o2.getY_coordinate()-o1.getY_coordinate()),2)))<=
+                       (Math.pow(o1.getRadius()+o2.getRadius(),2))) {listener.collision(o1,o2,this);return true;}
+       else return false;
     }
     public void update(float deltaT,PhysicsListener listener){
         for (PhysicObject object:objects){
-            object.setX(this.changeX(object.getX(),object.getVx(),object.getAccel(),deltaT));
-            object.setY(changeY(object.getY(),object.getVy(),object.getAccel(),deltaT));
-            object.setVy(change_Vx(object.getVx),object.getAccel(),deltaT));
-            object.setVy(change_Vy(object.getVy(),object.getAccel(),deltaT));
+            object.setX_coordinate(this.change_X_coordinate(object.getX_coordinate(),object.getX_speed(),object.getAcceleration(),deltaT));
+            object.setY_coordinate(change_Y_coordinate(object.getY_coordinate(),object.getY_speed(),object.getAcceleration(),deltaT));
+            object.setX_speed(change_Vx(object.getX_speed(),object.getAcceleration(),deltaT));
+            object.setY_speed(change_Vy(object.getY_speed(),object.getAcceleration(),deltaT));
             for (PhysicObject object1:objects){
                 if (object==object1)continue;
                 collisionCheck(object,object1,listener);
             }
         }
+
     }
 }
