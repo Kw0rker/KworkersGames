@@ -5,7 +5,6 @@ import Sprites.Sprite;
 public  class PhysicObject extends Sprite {
     private float X_speed;
     private float Y_speed;
-    private int X_coordinate, Y_coordinate;
     private static final float G=9.8f;
     private float acceleration;
 
@@ -24,11 +23,11 @@ public  class PhysicObject extends Sprite {
     }
 
     public int getX_coordinate() {
-        return X_coordinate;
+        return (int)super.x;
     }
 
     public int getY_coordinate() {
-        return Y_coordinate;
+        return (int)super.y;
     }
 
     public static float getG() {
@@ -48,11 +47,11 @@ public  class PhysicObject extends Sprite {
     }
 
     public void setX_coordinate(int x_coordinate) {
-        X_coordinate = x_coordinate;
+        super.x = x_coordinate;
     }
 
     public void setY_coordinate(int y_coordinate) {
-        Y_coordinate = y_coordinate;
+        super.y = y_coordinate;
     }
 
     public void setAcceleration(float acceleration) {
