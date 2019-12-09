@@ -6,8 +6,7 @@ import physics.PhysicObject;
 
 import java.awt.*;
 
-public class Ball extends PhysicObject
-{
+public class Ball extends PhysicObject{
     public float vx = (float)( 150 + (Math.random() * 200f));
     public float vy = (float)( 150 + (Math.random() * 200f));
     private final Color color = new Color(
@@ -15,24 +14,22 @@ public class Ball extends PhysicObject
             (int)(Math.random() * 255),
             (int)(Math.random() * 255)
     );
-    public Ball() 
-    {
+    
+    public Ball() {
         halfHeight = 20 + (float) (Math.random() * 50f);
         halfWidth = halfHeight;
         object = new PhysicObject();
     }
-    public Ball(int x, int y)
-    {
+    
+    public Ball(int _x, int _y){
         super();
-        this.x=x;
-        this.y=y;
+        x=_x;
+        y=_y;
         halfHeight = 20 + (float) (Math.random() * 50f);
         halfWidth = halfHeight;
     }
-
     @Override
-    public void update(GameCanvas canvas, float deltaTime) 
-    {
+    public void update(GameCanvas canvas, float deltaTime) {
         x += vx * deltaTime;
         y += vy * deltaTime;
         if (getLeft() < canvas.getLeft())
