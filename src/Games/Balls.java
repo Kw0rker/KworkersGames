@@ -85,8 +85,8 @@ public class Balls extends JFrame implements GameController, PhysicsListener
     public void collision(PhysicObject o1, PhysicObject o2, Physics physics) {
         if (o1 instanceof land && o2 instanceof land) return;
         //if (o1 instanceof Ball && o2 i) return;
-        o1.setVy(o1.getVy()*-1);
-        o2.setVx(o2.getXy()*-1);
+        o1.setY_speed(o1.getY_speed()*-1);
+        o2.setX_speed(o2.getX_speed()*-1);
         //o2.setVx(o2.getVx()*-1);
         //o1.setVx(o1.getVx()*-1);
     }
