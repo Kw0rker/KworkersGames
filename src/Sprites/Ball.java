@@ -22,7 +22,7 @@ public class Ball extends PhysicObject {
     }
     public Ball(int x_, int y_){
         super();
-        x=x_;y=y_;
+        this.x=x_;y=y_;
         halfHeight = 20 + (float) (Math.random() * 50f);
         halfWidth = halfHeight;
     }
